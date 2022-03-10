@@ -5,9 +5,8 @@ import { CallListComponent } from './view/call-list/call-list.component';
 
 
 const routes: Routes = [
-  { path: 'calls', component: CallListComponent },
+  { path: '', component: CallListComponent },
   { path: 'calls/:id', component: CallInUseComponent },
-  { path: '',   redirectTo: 'calls', pathMatch: 'full' },
 ];
 
 @NgModule({
