@@ -35,7 +35,7 @@ export class CallListComponent implements OnInit {
 
   public searchCall(callParam: NgForm) {
     const searchParam = callParam.value;
-    console.log(searchParam)
+
     this.searchResults = this.calls.filter(call => {
       const hasType: Boolean = call.type == searchParam.type || !searchParam.type;
       const hasStatus: Boolean = call.callStatus == searchParam.callStatus || !searchParam.callStatus;
