@@ -1,5 +1,6 @@
+<h1>Call In Use</h1>
+
 <div class="main-content">
-    <h1>Call In Use</h1>
 
     <div>
         <h2>Customer</h2>
@@ -10,7 +11,8 @@
                     <td>
                         <mat-form-field appearance="outline">
                             <mat-label>Title</mat-label>
-                            <input matInput formControlName="title">
+                            <input matInput id="title" formControlName="title" required>
+                            <mat-error *ngIf="title.invalid">Title is required</mat-error>
                         </mat-form-field>
                     </td>
                 </tr>
@@ -18,7 +20,8 @@
                     <td>
                         <mat-form-field appearance="outline">
                             <mat-label>First name</mat-label>
-                            <input matInput formControlName="firstName">
+                            <input matInput id="firstName" formControlName="firstName" required>
+                            <mat-error *ngIf="firstName.invalid">First name is required</mat-error>
                         </mat-form-field>
                     </td>
                 </tr>
@@ -26,7 +29,8 @@
                     <td>
                         <mat-form-field appearance="outline">
                             <mat-label>Surname</mat-label>
-                            <input matInput formControlName="surName">
+                            <input matInput id="surName" formControlName="surName" required>
+                            <mat-error *ngIf="surName.invalid">Surname is required</mat-error>
                         </mat-form-field>
                     </td>
                 </tr>
@@ -34,40 +38,43 @@
                     <td>
                         <mat-form-field appearance="outline">
                             <mat-label>Mobile</mat-label>
-                            <input matInput formControlName="mobile">
+                            <input type="tel" id="mobile" matInput formControlName="mobile" required>
+                            <mat-error *ngIf="mobile.invalid">Mobile is required</mat-error>
                         </mat-form-field>
                     </td>
                     <td>
-                        <button class="callButton" mat-raised-button color="primary" (click)="callMobile()">
+                        <a class="callButton" mat-raised-button color="primary" href="tel://{{customer.mobile}}">
                             <mat-icon aria-hidden="false">call</mat-icon>
                             Call Mobile Phone
-                        </button>
+                        </a>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <mat-form-field appearance="outline">
                             <mat-label>Home</mat-label>
-                            <input matInput formControlName="home">
+                            <input type="tel" id="home" matInput formControlName="home" required>
+                            <mat-error *ngIf="home.invalid">Home is required</mat-error>
                         </mat-form-field>
                     </td>
                     <td>
-                        <button class="callButton" mat-raised-button color="primary" (click)="callHome()">
+                        <a class="callButton" mat-raised-button color="primary" href="tel://{{customer.home}}">
                             <mat-icon aria-hidden="false">call</mat-icon>
                             Call Home Phone
-                        </button>
+                        </a>
                     </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <button class="updateButton" mat-raised-button color="accent" type="submit" [disabled]="!customerForm.valid">
+                        <button class="updateButton" mat-raised-button color="accent" [disabled]="!customerForm.valid">
                             Update
                         </button>
                         <a *ngIf="!updated" class="resetButton" mat-raised-button color="accent" (click)="reset()">
                             Reset
                         </a>
-                        <a *ngIf="updated" disabled class="resetButton" mat-raised-button color="accent" (click)="reset()">
+                        <a *ngIf="updated" disabled class="resetButton" mat-raised-button color="accent"
+                            (click)="reset()">
                             Reset
                         </a>
                     </td>

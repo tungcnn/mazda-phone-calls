@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/model/customer';
 import { ActivatedRoute } from '@angular/router';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { callsData, customersData } from 'src/app/data/data';
 import { Call } from 'src/app/model/call';
 
@@ -13,7 +13,14 @@ import { Call } from 'src/app/model/call';
 export class CallInUseComponent implements OnInit {
   customers: Customer[];
   customer: Customer;
-  customerForm: FormGroup;
+  customerForm: FormGroup = new FormGroup({
+    id: new FormControl(''),
+    title: new FormControl(''),
+    firstName: new FormControl(''),
+    surName: new FormControl(''),
+    mobile: new FormControl(''),
+    home: new FormControl(''),
+  });
   updated: Boolean = false;
 
   constructor(private route: ActivatedRoute) { }
@@ -27,13 +34,23 @@ export class CallInUseComponent implements OnInit {
 
     this.customerForm = new FormGroup({
       id: new FormControl(this.customer.id),
-      title: new FormControl(this.customer.title),
-      firstName: new FormControl(this.customer.firstName),
-      surName: new FormControl(this.customer.surName),
-      mobile: new FormControl(this.customer.mobile),
-      home: new FormControl(this.customer.home),
+      title: new FormControl(this.customer.title, [Validators.required]),
+      firstName: new FormControl(this.customer.firstName, Validators.required),
+      surName: new FormControl(this.customer.surName, Validators.required),
+      mobile: new FormControl(this.customer.mobile, Validators.required),
+      home: new FormControl(this.customer.home, Validators.required),
     });
   }
+
+  get title() { return this.customerForm.get('title'); }
+
+  get firstName() { return this.customerForm.get('firstName'); }
+
+  get surName() { return this.customerForm.get('surName'); }
+
+  get mobile() { return this.customerForm.get('mobile'); }
+
+  get home() { return this.customerForm.get('home'); }
 
   reset() {
     if (!this.updated) {
