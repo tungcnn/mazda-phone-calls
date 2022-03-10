@@ -20,21 +20,32 @@ export class CallListComponent implements OnInit {
 
   ngOnInit() {
     this.calls = [
-      { customerId: 1, name: "Mr Eren Yaeger", date: "21/01/2022", status: "Completed", type: "Services" },
-      { customerId: 2, name: "Mrs Mikasa Ackerman", date: "21/01/2022", status: "New", type: "Services" },
-      { customerId: 3, name: "Mr Levi Ackerman", date: "21/01/2022", status: "New", type: "Sales" },
-      { customerId: 4, name: "Miss Historia Reiss", date: "21/01/2022", status: "In use", type: "Sales" },
-      { customerId: 5, name: "Miss Ymir Fritz", date: "21/01/2022", status: "In use", type: "Services" }
+      { customerId: 1, name: "Mr Eren Yaeger", date: new Date("01/21/2022"), callStatus: "Completed", type: "Service" },
+      { customerId: 2, name: "Mrs Mikasa Ackerman", date: new Date("04/29/2021"), callStatus: "New", type: "Service" },
+      { customerId: 3, name: "Mr Levi Ackerman", date: new Date("06/13/2021"), callStatus: "New", type: "Sales" },
+      { customerId: 4, name: "Miss Historia Reiss", date: new Date("09/07/2021"), callStatus: "In use", type: "Sales" },
+      { customerId: 5, name: "Miss Ymir Fritz", date: new Date("03/02/2022"), callStatus: "In use", type: "Service" }
     ];
 
     this.searchResults = this.calls;
-    this.dataSource = this.calls;
+    this.dataSource = this.searchResults;
     this.statuses = ["New", "Completed", "In Use"];
     this.types = ["Sales", "Service"];
   }
 
   public searchCall(callParam: NgForm) {
-    console.log(callParam.value)
+    const searchParam = callParam.value;
+    console.log(searchParam)
+    this.searchResults = this.calls.filter(call => {
+      const hasType: Boolean = call.type == searchParam.type || !searchParam.type;
+      const hasStatus: Boolean = call.callStatus == searchParam.callStatus || !searchParam.callStatus;
+      const withinDateRange: Boolean = (call.date >= searchParam.startDate || !searchParam.startDate) 
+                                        && (call.date <= searchParam.endDate || !searchParam.endDate)
+
+      if (hasType && hasStatus && withinDateRange) return call;
+    })
+
+    this.dataSource = this.searchResults;
   }
 
   public setSelectedCall(call: Call) {

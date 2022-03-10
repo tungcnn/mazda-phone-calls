@@ -1,7 +1,7 @@
 .searchBar {
     display: flex;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 350px;
+    margin-right: 350px;
 }
 
 .searchBarCol {
@@ -20,7 +20,7 @@
 }
 
 .tableDiv {
-    margin: 50px 50px 50px 50px;
+    margin: 50px 350px 50px 350px;
 }
 
 table {

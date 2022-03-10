@@ -1,7 +1,7 @@
 export interface Call {
     customerId: number;
     name?: string;
-    date?: string;
-    status?: string;
+    date?: Date;
+    callStatus?: string;
     type?: string;
 }
