@@ -46,11 +46,10 @@ export class CallListComponent implements OnInit {
     })
 
     this.dataSource = this.searchResults;
+    this.currentCall = undefined;
   }
 
   public setSelectedCall(call: Call) {
     this.currentCall = call;
-
-    console.log(this.currentCall);
   }
 }
