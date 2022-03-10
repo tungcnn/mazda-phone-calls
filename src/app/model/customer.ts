@@ -1,7 +1,8 @@
 export interface Customer {
+    id: number,
     title?: string;
     firstName?: string;
     surName?: string;
-    mobile?: number;
-    home?: number;
+    mobile?: string;
+    home?: string;
 }
