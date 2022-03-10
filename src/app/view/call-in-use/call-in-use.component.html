@@ -82,7 +82,7 @@
             </table>
         </form>
 
-        <button class="completeButton" mat-raised-button color="primary" [routerLink]="['/calls']">
+        <button class="completeButton" mat-raised-button color="primary" (click)="completeCall()" [routerLink]="['/calls']">
             Call Completed
         </button>
     </div>

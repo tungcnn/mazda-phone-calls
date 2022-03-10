@@ -72,7 +72,7 @@ export class CallInUseComponent implements OnInit {
 
     const oldCall: Call = callsData.find(call => call.customerId == newCustomer.id);
 
-    if (oldCustomer) {
+    if (oldCustomer && oldCall) {
       oldCustomer.title = newCustomer.title;
       oldCustomer.firstName = newCustomer.firstName;
       oldCustomer.surName = newCustomer.surName;
@@ -83,5 +83,11 @@ export class CallInUseComponent implements OnInit {
 
       this.updated = true;
     }
+  }
+
+  completeCall() {
+    const oldCall: Call = callsData.find(call => call.customerId == this.customer.id);
+
+    if (oldCall) oldCall.callStatus = "Completed";
   }
 }
