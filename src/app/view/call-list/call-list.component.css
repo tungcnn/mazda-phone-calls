@@ -35,9 +35,9 @@ table {
 }
 
 .mat-header-cell {
-    font-weight: bold;
     font-size: large;
-    background-color: #bababa;
+    background-color: #673ab7;
+    color: #ffffff;
 }
 
 .mat-row:hover .mat-cell {

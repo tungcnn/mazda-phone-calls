@@ -3,7 +3,8 @@
 
     <div>
         <h2>Customer</h2>
-        <form [formGroup]="customerForm">
+        <form [formGroup]="customerForm" (ngSubmit)="update()">
+            <input hidden formControlName="id">
             <table>
                 <tr>
                     <td>
@@ -60,15 +61,22 @@
                 <tr>
                     <td></td>
                     <td>
-                        <button class="updateButton" mat-raised-button color="accent" (click)="callHome()">
+                        <button class="updateButton" mat-raised-button color="accent" type="submit" [disabled]="!customerForm.valid">
                             Update
                         </button>
-                        <button class="resetButton" mat-raised-button color="accent" (click)="callHome()">
+                        <a *ngIf="!updated" class="resetButton" mat-raised-button color="accent" (click)="reset()">
                             Reset
-                        </button>
+                        </a>
+                        <a *ngIf="updated" disabled class="resetButton" mat-raised-button color="accent" (click)="reset()">
+                            Reset
+                        </a>
                     </td>
                 </tr>
             </table>
         </form>
+
+        <button class="completeButton" mat-raised-button color="primary" [routerLink]="['/calls']">
+            Call Completed
+        </button>
     </div>
 </div>

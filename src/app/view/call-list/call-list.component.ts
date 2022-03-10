@@ -25,6 +25,8 @@ export class CallListComponent implements OnInit {
     this.dataSource = this.searchResults;
     this.statuses = ["New", "Completed", "In Use"];
     this.types = ["Sales", "Service"];
+
+    console.log("Again")
   }
 
   public searchCall(callParam: NgForm) {

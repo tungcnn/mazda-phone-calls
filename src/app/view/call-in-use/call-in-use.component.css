@@ -31,3 +31,8 @@ table {
 .resetButton {
     left: 110px;
 }
+
+.completeButton {
+    margin-top: 30px;
+    float: right;
+}
