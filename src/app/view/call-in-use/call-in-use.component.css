@@ -1,0 +1,33 @@
+.main-content {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border: 1px black solid;
+    padding: 30px;
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+.callButton {
+    width: 174px;
+    left: 80px;
+    bottom: 10px;
+}
+
+.updateButton {
+    left: 80px;
+}
+
+.resetButton {
+    left: 110px;
+}

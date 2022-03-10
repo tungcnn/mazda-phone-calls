@@ -1,1 +1,74 @@
-<p>call-in-use works!</p>
+<div class="main-content">
+    <h1>Call In Use</h1>
+
+    <div>
+        <h2>Customer</h2>
+        <form [formGroup]="customerForm">
+            <table>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Title</mat-label>
+                            <input matInput formControlName="title">
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="outline">
+                            <mat-label>First name</mat-label>
+                            <input matInput formControlName="firstName">
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Surname</mat-label>
+                            <input matInput formControlName="surName">
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Mobile</mat-label>
+                            <input matInput formControlName="mobile">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <button class="callButton" mat-raised-button color="primary" (click)="callMobile()">
+                            <mat-icon aria-hidden="false">call</mat-icon>
+                            Call Mobile Phone
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Home</mat-label>
+                            <input matInput formControlName="home">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <button class="callButton" mat-raised-button color="primary" (click)="callHome()">
+                            <mat-icon aria-hidden="false">call</mat-icon>
+                            Call Home Phone
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button class="updateButton" mat-raised-button color="accent" (click)="callHome()">
+                            Update
+                        </button>
+                        <button class="resetButton" mat-raised-button color="accent" (click)="callHome()">
+                            Reset
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { callsData } from 'src/app/data/data';
 import { Call } from 'src/app/model/call';
 
 @Component({
@@ -19,14 +20,7 @@ export class CallListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.calls = [
-      { customerId: 1, name: "Mr Eren Yaeger", date: new Date("01/21/2022"), callStatus: "Completed", type: "Service" },
-      { customerId: 2, name: "Mrs Mikasa Ackerman", date: new Date("04/29/2021"), callStatus: "New", type: "Service" },
-      { customerId: 3, name: "Mr Levi Ackerman", date: new Date("06/13/2021"), callStatus: "New", type: "Sales" },
-      { customerId: 4, name: "Miss Historia Reiss", date: new Date("09/07/2021"), callStatus: "In use", type: "Sales" },
-      { customerId: 5, name: "Miss Ymir Fritz", date: new Date("03/02/2022"), callStatus: "In use", type: "Service" }
-    ];
-
+    this.calls = callsData;
     this.searchResults = this.calls;
     this.dataSource = this.searchResults;
     this.statuses = ["New", "Completed", "In Use"];

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/model/customer';
+import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
+import { customersData } from 'src/app/data/data';
 
 @Component({
   selector: 'app-call-in-use',
@@ -8,17 +11,27 @@ import { Customer } from 'src/app/model/customer';
 })
 export class CallInUseComponent implements OnInit {
   customers: Customer[];
+  customer: Customer;
+  customerForm: FormGroup;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.customers = [
-      {id: 1, title: "Mr", firstName: "Eren", surName: "Yaeger", mobile: "0412345678", home: "0387654321"},
-      {id: 2, title: "Mrs", firstName: "Mikasa", surName: "Ackerman", mobile: "0412345678", home: "0387654321"},
-      {id: 3, title: "Mr", firstName: "Levi", surName: "Ackerman", mobile: "0412345678", home: "0387654321"},
-      {id: 4, title: "Miss", firstName: "Historia", surName: "Reiss", mobile: "0412345678", home: "0387654321"},
-      {id: 5, title: "Miss", firstName: "Ymir", surName: "Fritz", mobile: "0412345678", home: "0387654321"},
-    ]
+    this.customers = customersData;
+    this.route.paramMap.subscribe(params => {
+      const id =params.get("id");
+      this.customer = this.customers.find(customer => customer.id == parseInt(id));
+    });
+
+    this.customerForm = new FormGroup({
+      id: new FormControl(this.customer.id),
+      title: new FormControl(this.customer.title),
+      firstName: new FormControl(this.customer.firstName),
+      surName: new FormControl(this.customer.surName),
+      mobile: new FormControl(this.customer.mobile),
+      home: new FormControl(this.customer.home),
+    });
   }
+
 
 }
