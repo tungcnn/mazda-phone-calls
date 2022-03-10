@@ -23,7 +23,7 @@ export class CallListComponent implements OnInit {
     this.calls = callsData;
     this.searchResults = this.calls;
     this.dataSource = this.searchResults;
-    this.statuses = ["New", "Completed", "In Use"];
+    this.statuses = ["New", "Completed", "In use"];
     this.types = ["Sales", "Service"];
 
     console.log("Again")
