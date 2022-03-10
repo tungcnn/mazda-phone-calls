@@ -9,8 +9,12 @@ import { Call } from 'src/app/model/call';
 })
 export class CallListComponent implements OnInit {
   calls: Call[];
+  searchResults: Call[];
   statuses: String[];
   types: String[];
+  displayedColumns: string[] = ['name', 'date', 'type', 'status'];
+  dataSource: Call[];
+  currentCall: Call;
 
   constructor() { }
 
@@ -23,11 +27,19 @@ export class CallListComponent implements OnInit {
       { customerId: 5, name: "Miss Ymir Fritz", date: "21/01/2022", status: "In use", type: "Services" }
     ];
 
+    this.searchResults = this.calls;
+    this.dataSource = this.calls;
     this.statuses = ["New", "Completed", "In Use"];
     this.types = ["Sales", "Service"];
   }
 
   public searchCall(callParam: NgForm) {
     console.log(callParam.value)
+  }
+
+  public setSelectedCall(call: Call) {
+    this.currentCall = call;
+
+    console.log(this.currentCall);
   }
 }

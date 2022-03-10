@@ -11,8 +11,29 @@
 .searchButton {
     height: 60px;
     font-size: 20px;
+    float: right;
 }
 
 .searchButtonCol{
     padding-top: 60px;
+    width: 100%;
+}
+
+.tableDiv {
+    margin: 50px 50px 50px 50px;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-header-cell {
+    font-weight: bold;
+    font-size: large;
+    background-color: #bababa;
+}
+
+.mat-row:hover .mat-cell {
+    background-color: #673ab7;
+    color: #ffffff;
 }
