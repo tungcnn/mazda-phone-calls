@@ -1,9 +1,5 @@
 # MazdaPhoneApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
+https://mazda-phone-app.netlify.app
 
-## Development server
-
-Run `npm i` to install all dependancies.
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![image](https://github.com/user-attachments/assets/0a2a29a7-fec2-447e-922d-dcf4084e2a29)
